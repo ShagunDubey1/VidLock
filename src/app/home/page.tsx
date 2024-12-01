@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className=" flex min-h-screen flex-col items-center justify-center p-24">
+    <main className=" flex min-h-screen flex-col items-center justify-center py-24">
         <iframe 
           src="https://iframe.mediadelivery.net/embed/346621/acbc605a-4c32-4475-bf25-126bb1619eba?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
           loading="lazy" 
