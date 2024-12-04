@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 
 // routes
 import userRoutes from "@/app/api/[[...route]]/user"
+import paymentRoutes from "@/app/api/[[...route]]/payment"
 
 export const runtime = 'nodejs'
 
@@ -23,7 +24,7 @@ const app = new Hono().basePath('/api')
 app.use("*", initAuthConfig(getAuthConfig))
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const routes = app.route("/user", userRoutes);
+const routes = app.route("/user", userRoutes).route("/payment", paymentRoutes);
 
 app.get('/hello', (c) => {
   return c.json({
