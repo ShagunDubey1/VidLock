@@ -10,7 +10,6 @@ import paymentRoutes from "@/app/api/[[...route]]/payment"
 import videosRoutes from "@/app/api/[[...route]]/videos"
 
 dotenv.config(); 
-console.log(process.env.AUTH_SECRET);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getAuthConfig(c: Context): AuthConfig{

@@ -26,15 +26,15 @@ const app = new Hono()
     }
 
     // check if user is premium or not
-    const user = await db.select().from(users).where(eq(users.email, session.token.email));
+    // const user = await db.select().from(users).where(eq(users.email, session.token.email));
 
-    if(user.length === 0){
-      return c.json({error: "User not found"}, 404);
-    }
+    // if(user.length === 0){
+    //   return c.json({error: "User not found"}, 404);
+    // }
 
-    if(!user[0].isPremium){
-      return c.json({error: "User is not premium"}, 403);
-    }
+    // if(!user[0].isPremium){
+    //   return c.json({error: "User is not premium"}, 403);
+    // }
 
     // get signed url
     const signedURL = signStreamUrl(iframeURL, process.env.BUNNY_API_KEY!);

@@ -1,11 +1,15 @@
 import { client } from "@/lib/hono";
 import { useQuery } from "@tanstack/react-query";
 
-export const useCheckPremium = () => {
+export const useSignedUrl = (iframeURL: string) => {
   const query = useQuery({
-    queryKey: ["is-premium"],
+    queryKey: ["signed-url"],
     queryFn: async () => {
-      const response = await client.api.user["is-premium"]["$get"]();
+      const response = await client.api.videos["get-signed-url"]["$get"]({
+        query: {
+          iframeURL: iframeURL,
+        },
+      });
 
       if(!response.ok){
         throw new Error(response.statusText);
@@ -13,7 +17,7 @@ export const useCheckPremium = () => {
 
       const data = await response.json();
 
-      return data.isPremium;
+      return data.data;
     }
   });
 
