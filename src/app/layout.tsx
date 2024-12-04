@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/globals.css";
+import { Providers } from "@/components/providers/providers";
+import { SessionProvider } from "next-auth/react"
+import { auth } from "@/auth";
 
 const geistSans = localFont({
   src: "../lib/fonts/GeistVF.woff",
@@ -18,18 +21,24 @@ export const metadata: Metadata = {
   description: "A Video Paywall App",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <SessionProvider session={session}>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <Providers>
+            {children}
+          </Providers>
+        </body>
+      </html>
+    </SessionProvider>
   );
 }
