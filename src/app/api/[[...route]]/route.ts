@@ -7,14 +7,16 @@ import dotenv from 'dotenv';
 // routes
 import userRoutes from "@/app/api/[[...route]]/user"
 import paymentRoutes from "@/app/api/[[...route]]/payment"
-
-export const runtime = 'nodejs'
+import videosRoutes from "@/app/api/[[...route]]/videos"
 
 dotenv.config(); 
+console.log(process.env.AUTH_SECRET);
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getAuthConfig(c: Context): AuthConfig{
+
   return {
-    secret: c.env.AUTH_SECRET!,
+    secret: process.env.AUTH_SECRET!,
     ...authConfig
   }
 }
@@ -24,13 +26,7 @@ const app = new Hono().basePath('/api')
 app.use("*", initAuthConfig(getAuthConfig))
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const routes = app.route("/user", userRoutes).route("/payment", paymentRoutes);
-
-app.get('/hello', (c) => {
-  return c.json({
-    message: 'Hello Next.js!',
-  })
-})
+const routes = app.route("/user", userRoutes).route("/payment", paymentRoutes).route("/videos", videosRoutes);
 
 export const GET = handle(app)
 export const POST = handle(app)

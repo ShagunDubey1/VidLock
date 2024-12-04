@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import { useCreateOrder } from '@/lib/hooks/users/use-create-order'
 import { useVerifyPayment } from '@/lib/hooks/users/use-verify-payment';
