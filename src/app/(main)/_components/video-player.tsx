@@ -2,6 +2,8 @@
 
 import { useCheckPremium } from '@/lib/hooks/users/use-check-permission'
 import React from 'react'
+import { Button } from "@/components/ui/button"
+
 
 export const VideoPlayer = () => {
   const { data: isPremium, isError, isPending} = useCheckPremium();
@@ -14,9 +16,9 @@ export const VideoPlayer = () => {
 
   if(isError){
     return ( 
-      <div className=' flex p-4 justify-center items-center'>
+      <div className=' flex flex-col gap-4 p-4 justify-center items-center'>
         <h2>Upgrade to premium to watch this video</h2>
-
+          <Button>Upgarde</Button>
       </div>
     )
   }
