@@ -2,7 +2,7 @@
 
 import { useCheckPremium } from '@/lib/hooks/users/use-check-permission'
 import React from 'react'
-import { Button } from "@/components/ui/button"
+import { UpgradeBtn } from './upgradeBtn'
 
 
 export const VideoPlayer = () => {
@@ -18,7 +18,7 @@ export const VideoPlayer = () => {
     return ( 
       <div className=' flex flex-col gap-4 p-4 justify-center items-center'>
         <h2>Upgrade to premium to watch this video</h2>
-          <Button>Upgarde</Button>
+        <UpgradeBtn />
       </div>
     )
   }
