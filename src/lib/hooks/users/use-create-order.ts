@@ -25,10 +25,10 @@ export const useCreateOrder = () => {
       return data; 
     },
     onError: (error) => {
-      toast.error(`error creating order: ${error}`);
+      toast.error(`Error creating order: ${error}`);
     },
     onSuccess: () => {
-      toast.success("order created successfully");
+      toast.success("Order created successfully");
     }
   })
 
