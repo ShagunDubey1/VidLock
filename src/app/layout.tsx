@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import { Providers } from "@/components/providers/providers";
 import { SessionProvider } from "next-auth/react"
 import { auth } from "@/auth";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = localFont({
   src: "../lib/fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default async function RootLayout({
         >
           <Providers>
             {children}
+            <Toaster />
           </Providers>
         </body>
       </html>
