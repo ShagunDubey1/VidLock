@@ -33,6 +33,7 @@ export const UpgradeBtn = () => {
       { planId: "premium" },
       {
         onSuccess: async (response) => {
+          console.log("success")
           if ("data" in response) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
             const paymentObject = new (window as any).Razorpay({
@@ -47,6 +48,8 @@ export const UpgradeBtn = () => {
                 await verifyPayment(orderData);
               }
             });
+
+            paymentObject.open();
           } else {
             // Handle the error case, e.g., show a toast
           }

@@ -61,7 +61,7 @@ const app = new Hono()
     }
 
     const options = {
-      amount: 999,
+      amount: 100,
       currency: "INR",
       receipt: "order_receipt_11"
     };

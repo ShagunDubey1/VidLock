@@ -14,9 +14,19 @@ export const VideoPlayer = () => {
     isError: isSignedUrlError
   } = useSignedUrl("https://iframe.mediadelivery.net/embed/346621/acbc605a-4c32-4475-bf25-126bb1619eba")
 
+
   if(isPending || isSignedUrlPending){ 
     return ( 
     <div className=' flex p-4 justify-center items-center'><h2>Loading...</h2></div>
+    )
+  }
+
+  if(!isPremium || !sigendUrl){
+    return ( 
+      <div className=' flex flex-col gap-4 p-4 justify-center items-center'>
+        <h2>Upgrade to premium to watch this video</h2>
+        <UpgradeBtn />
+      </div>
     )
   }
 
@@ -27,15 +37,6 @@ export const VideoPlayer = () => {
       </div>
     )
   }
-
-  // if(!isPremium || !sigendUrl){
-  //   return ( 
-  //     <div className=' flex flex-col gap-4 p-4 justify-center items-center'>
-  //       <h2>Upgrade to premium to watch this video</h2>
-  //       <UpgradeBtn />
-  //     </div>
-  //   )
-  // }
 
   return (
     <iframe 
