@@ -1,5 +1,5 @@
 
-# VidLock
+# VidLock - Video Paywall application
 
 VidLock is a video paywall application built using modern web technologies like Next.js, Auth.js, Neon (Postgres Database), Bunny CDN, Drizzle ORM, Hono JS (RPC), and Razorpay for seamless payment integration. It enables content creators to securely host their video content, allowing only premium members to access videos. The application uses Embed View Token Authentication to ensure that video URLs are protected and only accessible by paid members.
 
