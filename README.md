@@ -15,9 +15,9 @@ VidLock is a video paywall application built using modern web technologies like 
 - Access Control: Non-premium users are prompted to upgrade their accounts to access restricted content.
 ## Tech Stack
 
-**Client:** Next.js, Auth.js, shadcn ui, Bunny CDN
+**Client:** Next.js, Auth.js, shadcn ui, Bunny CDN, Zod, Tanstack Query
 
-**Server:** Next.js, Auth.js, Neon( PostgreSQL), Hono.js, Razorpay
+**Server:** Next.js, Auth.js, Neon( PostgreSQL), Hono.js, Razorpay, Zod
 
 
 
