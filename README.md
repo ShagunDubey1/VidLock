@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# VidLock
 
-First, run the development server:
+VidLock is a video paywall application built using modern web technologies like Next.js, Auth.js, Neon (Postgres Database), Bunny CDN, Drizzle ORM, Hono JS (RPC), and Razorpay for seamless payment integration. It enables content creators to securely host their video content, allowing only premium members to access videos. The application uses Embed View Token Authentication to ensure that video URLs are protected and only accessible by paid members.
+
+
+## Features
+
+- OAuth Authentication: Secure user login using GitHub through Auth.js.
+- Neon + Drizzle ORM: Efficient database management with Neon for Postgres and Drizzle ORM for schema management and queries.
+- Bunny CDN: High-performance video hosting using Bunny CDN to serve content quickly and securely.
+- Payment Integration: Integrated with Razorpay for smooth and secure premium upgrades and payments.
+- Embed View Token Authentication: Protects video URLs, ensuring that only premium users can access and view videos.
+- Premium Membership: Users can view videos only after upgrading to a premium membership by paying the fees via Razorpay.
+- Access Control: Non-premium users are prompted to upgrade their accounts to access restricted content.
+## Tech Stack
+
+**Client:** Next.js, Auth.js, shadcn ui, Bunny CDN
+
+**Server:** Next.js, Auth.js, Neon( PostgreSQL), Hono.js, Razorpay
+
+
+
+## Installation
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/ShagunDubey1/VidLock.git
+  cd vid-lock
+```
+    
+Install dependencies:
+
+```bash
+    npm Install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set up environment variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a .env file in the root directory and add the following:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+    NEXT_PUBLIC_BUNNY_CDN_URL=your_bunny_cdn_url
+    GITHUB_CLIENT_ID=your_github_client_id
+    GITHUB_CLIENT_SECRET=your_github_client_secret
+    DATABASE_URL=your_postgres_neon_url
+    RAZORPAY_KEY_ID=your_razorpay_key_id
+    RAZORPAY_KEY_SECRET=your_razorpay_key_secret
+```
 
-## Learn More
+Run the migrations using Drizzle ORM:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+   npm run db-migrate
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Start the development server:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+   npm run dev
+```
